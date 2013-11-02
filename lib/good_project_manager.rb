@@ -3,19 +3,19 @@ require './lib/project_manager'
 
 class GoodProjectManager < ProjectManager
   def execute(customer, scenario=nil)
-    return product if customer.angry_mater < 100
+    # return product if customer.angry_mater < 100
 
-    case scenario.instance_of?
+    case scenario
     when Scenarios::ProtoTyping
-      leader.execute(product)
+      leader.execute
     when Scenarios::ProductDevelopment
-      programmer.execute(product)
+      programmer.execute
     when Scenarios::Test
-      tester.execute(product)
+      tester.execute
     when Scenarios::Delivery
-      leader.execute(product) rescue nil
-      programmer.execute(product) rescue nil
-      tester.execute(product) rescue nil
+      leader.execute rescue nil
+      programmer.execute rescue nil
+      tester.execute rescue nil
 
       begin
         customer.execute(product)

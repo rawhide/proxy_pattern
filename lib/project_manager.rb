@@ -7,7 +7,7 @@ class ProjectManager
   include Base
 
   def claim(customer)
-    Sales.new.execute
+    Sales.new.execute(customer)
   end
 
   def execute(customer, scenario=nil)

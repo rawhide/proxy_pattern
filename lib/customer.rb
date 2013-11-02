@@ -47,7 +47,7 @@ class Customer
       raise ArgumentError.new('お前、死にたいのよね・・・俺を怒らせるってこと死にたいよね・・逃がさないぞ！！')
     end
 
-    return  insults.each { |mess| puts mess ; wait 2 }
+    return  insults.each { |mess| puts mess ; sleep 2 }
 
   end
 
