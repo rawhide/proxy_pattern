@@ -23,13 +23,13 @@ class Programmer
     elsif @tired_point_programmer < 5
       p "【プログラマーが発言している。】"
       p "まだまだ楽勝です！"
-    elsif < 10
+    elsif @tired_point_programmer < 10
       p "【プログラマーが発言している】"
       p "ちょっときついです。。。"
-    elsif < 15
+    elsif @tired_point_programmer < 15
       p "【プログラマーの様子が。。。】"
       p "う、お腹が痛い。。。"
-    elsif < 20
+    elsif @tired_point_programmer < 20
       p "【プログラマーからメールがあった。】"
       p "体調不良で今日休みます。。。"
       @tired_point_programmer = 0
@@ -41,7 +41,7 @@ class Programmer
     p "ごめんなさい直します。。。"
     product.quality -= 3
     product.progress -= 1
-    @tired_point_proggramer += 3
+    @tired_point_programmer += 3
   end
 
   def product

@@ -7,7 +7,7 @@ Dir.glob("./scenarios/*.rb"){|file| require file}
 
 class Main
   def execute
-    [ Scenarios::ProtoTyping, Scenarios::ProductDevelopment, Scenarios::Test, Scenarios::Delivery].each do |klass|
+    [ Scenarios::ProtoTyping].each do |klass|
       klass.new.execute({ customer: customer, project_manager: project_manager, sales: sales })
     end
   rescue Exception => ex
@@ -20,7 +20,7 @@ class Main
   end
 
   def project_manager
-    @project_manager ||= ProjectManager.new
+    @project_manager ||= GoodProjectManager.new
   end
 
   def sales

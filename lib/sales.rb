@@ -8,7 +8,7 @@ require './lib/base'
 class Sales
   include Base
 
-  def exectue(customer)
+  def execute(customer)
     case customer.angry_mater
     when customer.angry_mater > 100
       gyakugire
@@ -29,7 +29,7 @@ class Sales
     when 30..40
       monadainashi
     when 20..30
-      irusu
+      #irusu
     when 10..20
       mushi
     else

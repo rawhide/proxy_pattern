@@ -17,18 +17,19 @@ class Tester
     product.quality += 1
     @tired_point_test += 2
 
-    if @tired_point_test == 0
+    case @tired_point_test
+    when 0
       p "今日からまた頑張ります！！！"
-    elsif @tired_point_test < 5
+    when 1..5
       p "【テスターが発言している。】"
       p "まだまだ楽勝です！"
-    elsif < 10
+    when 6..10
       p "【テスターが文句をいっている】"
       p "バグばっかりじゃねーかよ。。。"
-    elsif < 15
+    when 11..15
       p "【テスターの様子がおかしい。】"
       p "最近、夢にテストシナリオが出てくる。。。"
-    elsif < 20
+    when 16..20
       p "【テスターから連絡があった。】"
       p "体調不良で今日休みます。。。"
       @tired_point_test = 0

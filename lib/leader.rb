@@ -15,19 +15,16 @@ class Leader
   TIRED_MESSAGE = "疲れました。シンドイDESU・・・"
   REST_MESSAGE = "今日はやすみます。探さないでください。。。"
 
-  def initialize()
-    tired_point = rand(HEALTHY..REST)
-  end
   #
   # = 製品を開発します。リーダーなので能力が高いです。
   #
   def execute
     tweet
-    return unless tired_point == REST
+    return if tired_point == REST
 
     product = Product.instance
 
-    if product.progress > 100
+    if product.progress < 100
       product.progress += 2
       product.quality += 2
     else
@@ -52,6 +49,8 @@ class Leader
     else REST
       p REST_MESSAGE
     end
+  end
+  
   #
   # プロジェクトマネージャー の連絡先を知っています
   # == プログラマーの連絡先を知っています
@@ -83,5 +82,9 @@ class Leader
 
   def product
     Product.instance
+  end
+
+  def tired_point
+    @tired_point ||= rand(HEALTHY..REST)
   end
 end
